@@ -8,7 +8,7 @@ shareable links using Base62 encoding.
 ![Redis](https://img.shields.io/badge/Redis-Required-red)
 ![Maven](https://img.shields.io/badge/Maven-Build-blue)
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
@@ -30,7 +30,7 @@ shareable links using Base62 encoding.
 - [Author](#-author)
 - [Acknowledgments](#-acknowledgments)
 
-## 🎯 Overview
+## Overview
 
 This URL Shortener service is a lightweight, high-performance application that transforms long URLs into short,
 memorable links. The service uses Redis for fast data storage and retrieval, and implements Base62 encoding to generate
@@ -39,13 +39,13 @@ compact URL identifiers.
 **Key Highlights:**
 
 - ⚡ Fast URL shortening and retrieval using Redis
-- 🔢 Base62 encoding for compact, URL-safe identifiers
-- 🔄 Automatic redirection to original URLs
-- 📊 Atomic counter-based ID generation
-- ✅ Comprehensive test coverage (100%)
-- 📝 Fully documented with JavaDocs
+- Base62 encoding for compact, URL-safe identifiers
+- Automatic redirection to original URLs
+- Atomic counter-based ID generation
+- Comprehensive test coverage (100%)
+- Fully documented with JavaDocs
 
-## ✨ Features
+## Features
 
 ### Core Functionality
 
@@ -63,7 +63,7 @@ compact URL identifiers.
 - **Test Coverage**: 100% unit test coverage for all components
 - **Clean Architecture**: Separation of concerns with layered design
 
-## 🏗️ Architecture
+## Architecture
 
 The application follows a clean, layered architecture:
 
@@ -138,7 +138,7 @@ The application follows a clean, layered architecture:
 | **Mockito**           | 5.x     | Mocking Framework     |
 | **Maven**             | 3.x     | Build Tool            |
 
-## 📐 System Design
+## System Design
 
 ```mermaid
 flowchart TD
@@ -207,7 +207,7 @@ url:q0V = https://example.com/page2
 url:q0W = https://example.com/page3
 ```
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before running the application, ensure you have:
 
@@ -227,7 +227,7 @@ Before running the application, ensure you have:
    # Should return: PONG
    ```
 
-## 🚀 Installation
+## Installation
 
 ### 1. Clone the Repository
 
@@ -267,7 +267,7 @@ java -jar target/url-shortener-0.0.1-SNAPSHOT.jar
 
 The application will start on `http://localhost:8080`
 
-## ⚙️ Configuration
+## Configuration
 
 ### Application Properties
 
@@ -295,7 +295,7 @@ Run with specific profile:
 java -jar url-shortener.jar --spring.profiles.active=prod
 ```
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### 1. Health Check
 
@@ -364,7 +364,7 @@ Location: https://example.com/very-long-url-that-needs-to-be-shortened
 - When short URL is not found
 - When Redis connection fails
 
-## 📝 Usage Examples
+## Usage Examples
 
 ### Using cURL
 
@@ -453,7 +453,7 @@ print(f"Short URL: {result['url']}")
 print(f"Created at: {result['createdAt']}")
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Test Coverage
 
@@ -488,7 +488,7 @@ mvn clean test jacoco:report
 
 Coverage report will be at: `target/site/jacoco/index.html`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 url-shortener/
@@ -519,7 +519,7 @@ url-shortener/
 ├── README.md                                     # This file              
 ```
 
-## ✅ Code Quality
+## Code Quality
 
 ### Strengths
 
@@ -550,30 +550,30 @@ url-shortener/
 
 ### Areas Analyzed for Security & Quality
 
-#### ✅ Security Considerations
+#### Security Considerations
 
-1. **Input Validation** ⚠️
+1. **Input Validation** 
     - Currently minimal validation on URLs
     - **Recommendation:** Add URL format validation
     - **Recommendation:** Implement max URL length limits
 
-2. **Rate Limiting** ⚠️
+2. **Rate Limiting** 
     - No rate limiting implemented
     - **Recommendation:** Add rate limiting to prevent abuse
 
-3. **Redis Authentication** ⚠️
+3. **Redis Authentication** 
     - Password field empty in configuration
     - **Recommendation:** Use strong Redis password in production
 
-4. **Open Redirect Vulnerability** ⚠️
+4. **Open Redirect Vulnerability** 
     - Application redirects to any stored URL
     - **Recommendation:** Validate URLs against whitelist/blacklist
 
-5. **Error Information Disclosure** ⚠️
+5. **Error Information Disclosure** 
     - Generic 500 errors returned (good)
     - Detailed errors logged (appropriate)
 
-#### ✅ Performance Considerations
+#### Performance Considerations
 
 1. **Redis Connection Pooling** ✓
     - Spring Data Redis handles connection pooling
@@ -591,7 +591,7 @@ url-shortener/
     - Direct Redis lookups (O(1))
     - No complex computations
 
-#### ⚠️ Known Limitations
+#### Known Limitations
 
 1. **URL Validation**
     - No validation of URL format
@@ -623,7 +623,7 @@ url-shortener/
     - No CORS configuration
     - May need configuration for web clients
 
-## 🔒 Security Recommendations
+## Security Recommendations
 
 ### For Production Deployment
 
@@ -632,18 +632,11 @@ url-shortener/
 ```java
 // Validate URL format
 if(!longUrl.matches("^https?://.*")){
-    throw new
-
-IllegalArgumentException("Invalid URL format");
+    throw new IllegalArgumentException("Invalid URL format");
 }
-
-    // Check URL length
-    if(longUrl.
-
-length() >2048){
-    throw new
-
-IllegalArgumentException("URL too long");
+// Check URL length
+if(longUrl.length() >2048){
+    throw new IllegalArgumentException("URL too long");
 }
 ```
 
@@ -747,7 +740,7 @@ Current implementation supports billions of URLs before hitting Base62 limits.
     - Support bulk URL shortening
     - Use Redis pipeline for multiple operations
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 ### Planned Features
 
@@ -795,7 +788,7 @@ Current implementation supports billions of URLs before hitting Base62 limits.
     - Redis persistence configuration
     - Backup and restore functionality
 
-## 📊 Monitoring & Debugging
+## Monitoring & Debugging
 
 ### Health Check
 
@@ -834,11 +827,11 @@ logging.level.com.url.shortener=DEBUG
 logging.level.org.springframework.data.redis=DEBUG
 ```
 
-## 🤝 Contributing
+## Contributing
 
 This is a personal portfolio project and is not open source. However, feedback and suggestions are welcome!
 
-## 👤 Author
+## Author
 
 **Bhaskara Navuluri**
 
@@ -846,7 +839,7 @@ This is a personal portfolio project and is not open source. However, feedback a
 - LinkedIn: [Bhaskara Navuluri](www.linkedin.com/in/bhaskara-navuluri-52a0151b2)
 - Stackoverflow: [Bhaskara Navuluri](https://stackoverflow.com/users/1781174/bhaskara)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Spring Boot team for the excellent framework
 - Redis team for the powerful data store
