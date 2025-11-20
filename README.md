@@ -696,7 +696,7 @@ public class CorsConfig
 }
 ```
 
-## ⚡ Performance Considerations
+## Performance Considerations
 
 ### Current Performance
 
