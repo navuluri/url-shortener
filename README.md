@@ -38,7 +38,7 @@ compact URL identifiers.
 
 **Key Highlights:**
 
-- ⚡ Fast URL shortening and retrieval using Redis
+- Fast URL shortening and retrieval using Redis
 - Base62 encoding for compact, URL-safe identifiers
 - Automatic redirection to original URLs
 - Atomic counter-based ID generation
@@ -65,35 +65,36 @@ compact URL identifiers.
 
 ## Architecture
 
+
 The application follows a clean, layered architecture:
 
 ```
-┌──────────────────────────────────────────────���──────────┐
+┌──────────────────────────────────────────────────────────┐
 │                     REST API Layer                       │
 │                   (ShortenerApi)                         │
-│         GET / | GET /{shortUrl} | POST /api/v1/shorten  │
+│         GET / | GET /{shortUrl} | POST /api/v1/shorten   │
+└──────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────┐
+│                    Service Layer                        │
+│                  (ShortenerService)                     │
+│         • Business Logic                                │
+│         • Domain Concatenation                          │
 └─────────────────────────────────────────────────────────┘
                             │
                             ▼
 ┌─────────────────────────────────────────────────────────┐
-│                    Service Layer                         │
-│                  (ShortenerService)                      │
-│         • Business Logic                                 │
-│         • Domain Concatenation                           │
+│                  Repository Layer                       │
+│                (ShortenerRepository)                    │
+│         • Redis Operations                              │
+│         • Base62 Encoding                               │
+│         • Data Persistence                              │
 └─────────────────────────────────────────────────────────┘
                             │
                             ▼
 ┌─────────────────────────────────────────────────────────┐
-│                  Repository Layer                        │
-│                (ShortenerRepository)                     │
-│         • Redis Operations                               │
-│         • Base62 Encoding                                │
-│         • Data Persistence                               │
-└─────────────────────────────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────┐
-│                    Redis Data Store                      │
+│                    Redis Data Store                     │
 │         • URL Mappings (url:{shortId} → longUrl)        │
 │         • Global Counter (global:url:id)                │
 └─────────────────────────────────────────────────────────┘
