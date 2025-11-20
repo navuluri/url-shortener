@@ -10,25 +10,25 @@ shareable links using Base62 encoding.
 
 ## Table of Contents
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Architecture](#️-architecture)
-- [Technology Stack](#️-technology-stack)
-- [System Design](#-system-design)
-- [Prerequisites](#-prerequisites)
-- [Installation](#-installation)
-- [Configuration](#️-configuration)
-- [API Endpoints](#-api-endpoints)
-- [Usage Examples](#-usage-examples)
-- [Testing](#-testing)
-- [Project Structure](#-project-structure)
-- [Code Quality](#-code-quality)
-- [Security Recommendations](#-security-recommendations)
-- [Performance Considerations](#-performance-considerations)
-- [Future Enhancements](#-future-enhancements)
-- [Monitoring & Debugging](#-monitoring--debugging)
-- [Author](#-author)
-- [Acknowledgments](#-acknowledgments)
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#️architecture)
+- [Technology Stack](#️technology-stack)
+- [System Design](#system-design)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#️configuration)
+- [API Endpoints](#api-endpoints)
+- [Usage Examples](#usage-examples)
+- [Testing](#testing)
+- [Project Structure](#project-structure)
+- [Code Quality](#code-quality)
+- [Security Recommendations](#security-recommendations)
+- [Performance Considerations](#performance-considerations)
+- [Future Enhancements](#future-enhancements)
+- [Monitoring & Debugging](#monitoring--debugging)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -125,7 +125,7 @@ The application follows a clean, layered architecture:
 - Converts numeric IDs to alphanumeric strings
 - URL-safe character set (0-9, A-Z, a-z)
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Technology            | Version | Purpose               |
 |-----------------------|---------|-----------------------|
